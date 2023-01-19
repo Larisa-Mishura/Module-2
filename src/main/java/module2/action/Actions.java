@@ -35,9 +35,7 @@ public enum Actions {
 
     private static String[] mapActionsToNames(final Actions[] values) {
         String[] names = new String[values.length];
-        //System.out.println("What do you want to do?");
         for (int i = 0; i < values.length; i++) {
-            //System.out.println(i + "  " + values[i].getName());
             names[i] = values[i].getName();
         }
         return names;

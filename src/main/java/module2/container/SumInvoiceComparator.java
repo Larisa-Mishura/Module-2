@@ -1,7 +1,7 @@
-package module2.service;
+package module2.container;
 
-import module2.model.Invoice;
-import module2.model.product.Item;
+import module2.container.Invoice;
+import module2.model.item.Item;
 
 import java.util.Comparator;
 

@@ -5,9 +5,9 @@ import java.util.UUID;
 
 @Getter
 public class Customer {
-    protected final String id;
-    protected String email;
-    protected int age;
+    private final String id;
+    private String email;
+    private int age;
 
     public Customer(String email, int age) {
         this.id = UUID.randomUUID().toString();

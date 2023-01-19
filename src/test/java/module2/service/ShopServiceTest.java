@@ -1,8 +1,8 @@
 package module2.service;
 
 import module2.model.Customer;
-import module2.model.Invoice;
-import module2.model.product.*;
+import module2.container.Invoice;
+import module2.model.item.*;
 import module2.repository.InvoiceRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

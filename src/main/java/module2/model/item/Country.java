@@ -1,5 +1,8 @@
-package module2.model.product;
+package module2.model.item;
 
+import lombok.Getter;
+
+@Getter
 public enum Country {
 
     CHINA ("China"),

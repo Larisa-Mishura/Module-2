@@ -1,8 +1,8 @@
-package module2.model;
+package module2.container;
 
 import lombok.Getter;
 import lombok.Setter;
-import module2.repository.InvoiceRepository;
+import module2.model.Customer;
 
 import java.util.*;
 

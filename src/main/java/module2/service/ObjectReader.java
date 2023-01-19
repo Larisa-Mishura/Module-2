@@ -1,6 +1,6 @@
 package module2.service;
 
-import module2.model.product.*;
+import module2.model.item.*;
 import org.apache.commons.lang3.EnumUtils;
 
 import java.io.InputStream;

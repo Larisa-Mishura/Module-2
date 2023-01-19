@@ -1,4 +1,4 @@
-package module2.model.product;
+package module2.model.item;
 
 
 public enum ItemType {

@@ -1,6 +1,6 @@
 package module2.repository;
 
-import module2.model.product.Item;
+import module2.model.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;
