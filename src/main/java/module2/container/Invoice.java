@@ -34,13 +34,12 @@ public class Invoice <Product>{
     }
 
     public String toString() {
-        return "   Invoice - " +
-                invoiceType +
-                "("  +
+        return "Invoice - {" +
+                customer + ",  " +
+                invoiceType + " (" +
                 productList.size() +
                 " items)" +
                 "   productList=" + productList +
-                ", customer=" + customer +
                 '}';
     }
 }
