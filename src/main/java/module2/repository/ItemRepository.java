@@ -23,7 +23,9 @@ public class ItemRepository {
     }
 
     public void save(final Item item) {
-        ITEMS.add(item);
+        if(item != null) {
+            ITEMS.add(item);
+        }
     }
 
     public List<Item> getAllProducts() {

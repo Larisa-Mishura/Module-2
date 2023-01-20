@@ -24,7 +24,9 @@ public class InvoiceRepository  {
     }
 
     public void save(final Invoice<Item> invoice) {
-        INVOICES.add(invoice);
+        if(invoice != null) {
+            INVOICES.add(invoice);
+        }
     }
 
     public List<Invoice<Item>> getAllInvoices() {
