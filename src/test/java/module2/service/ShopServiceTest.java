@@ -1,23 +1,19 @@
 package module2.service;
 
-import module2.model.Customer;
+import module2.container.Customer;
 import module2.container.Invoice;
-import module2.model.item.*;
-import module2.repository.InvoiceRepository;
+import module2.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.*;
 
-import static net.bytebuddy.matcher.ElementMatchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShopServiceTest {
 
     private ShopService target;
-    private InvoiceRepository invoiceRepository;
 
     private final LinkedList<Invoice<Item>> TEST_INVOICES = new LinkedList<>();
     private final static Item[] items ={
@@ -37,7 +33,6 @@ class ShopServiceTest {
 
 @BeforeEach
     void setUp(){
-        invoiceRepository = Mockito.mock(InvoiceRepository.class);
         target = ShopService.getInstance();
 
         TEST_INVOICES.add(new Invoice(new Customer("Customer1@gmail.com", 40), items[0], items[1]));
@@ -48,63 +43,61 @@ class ShopServiceTest {
         TEST_INVOICES.add(new Invoice(new Customer("Customer6@gmail.com", 40), items[7], items[8]));
         TEST_INVOICES.add(new Invoice(new Customer("Customer7@gmail.com", 50), items[0], items[1], items[5], items[7], items[9]));
         TEST_INVOICES.add(new Invoice(new Customer("Customer8@gmail.com", 16), items[0], items[6]));
-
-        Mockito.when(invoiceRepository.getAllInvoices()).thenReturn(TEST_INVOICES);
 }
     
     @Test
     void countByTypeTelephoneTest() {
         final int expected = 11;
-        int actual = target.countByType(invoiceRepository.getAllInvoices()).get(ItemType.TELEPHONE);
+        int actual = target.countByType(TEST_INVOICES).get(ItemType.TELEPHONE);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void countByTypeTVTest() {
         final int expected = 10;
-        int actual = target.countByType(invoiceRepository.getAllInvoices()).get(ItemType.TV);
+        int actual = target.countByType(TEST_INVOICES).get(ItemType.TV);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void customerOfTheLeastInvoiceTest() {
-        final Customer expected = invoiceRepository.getAllInvoices().get(7).getCustomer();
-        final Customer actual = target.customerOfTheLeastInvoice(invoiceRepository.getAllInvoices());
+        final Customer expected = TEST_INVOICES.get(7).getCustomer();
+        final Customer actual = target.customerOfTheLeastInvoice(TEST_INVOICES);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void totalAmountTest() {
         final int expected = 470_000;
-        final int actual = target.totalAmount(invoiceRepository.getAllInvoices());
+        final int actual = target.totalAmount(TEST_INVOICES);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void retailCountTest() {
         final int expected = 7;
-        final int actual = target.retailCount(invoiceRepository.getAllInvoices());
+        final int actual = target.retailCount(TEST_INVOICES);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void invoiceWithOneTypeTest() {
         final int expected = 5;
-        final int actual = target.invoiceWithOneType(invoiceRepository.getAllInvoices()).size();
+        final int actual = target.invoiceWithOneType(TEST_INVOICES).size();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void threeFirstTest() {
         final Invoice[] expected = {(TEST_INVOICES.get(0)), TEST_INVOICES.get(1), TEST_INVOICES.get(2)};
-        final ArrayList<Invoice> actual = target.threeFirst(invoiceRepository.getAllInvoices());
+        final ArrayList<Invoice> actual = target.threeFirst(TEST_INVOICES);
         assertArrayEquals(expected, actual.toArray());
     }
 
     @Test
     void youngCustomersTest() {
         final Invoice[] expected = {(TEST_INVOICES.get(4)), TEST_INVOICES.get(7)};
-        final ArrayList<Invoice> actual = target.youngCustomers(invoiceRepository.getAllInvoices());
+        final ArrayList<Invoice> actual = target.youngCustomers(TEST_INVOICES);
         assertArrayEquals(expected, actual.toArray());
     }
 
@@ -113,7 +106,7 @@ class ShopServiceTest {
         final Invoice[] expected = {
                 (TEST_INVOICES.get(7)), TEST_INVOICES.get(4), (TEST_INVOICES.get(3)), (TEST_INVOICES.get(1)),
                 TEST_INVOICES.get(2), (TEST_INVOICES.get(0)), (TEST_INVOICES.get(5)), TEST_INVOICES.get(6)};
-        final ArrayList<Invoice> actual = target.sortInvoices(invoiceRepository.getAllInvoices());
+        final ArrayList<Invoice> actual = target.sortInvoices(TEST_INVOICES);
         assertArrayEquals(expected, actual.toArray());
     }
 }

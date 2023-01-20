@@ -17,7 +17,7 @@ public enum Actions {
     YOUNG_CUSTOMERS ("Show invoices of customers under 18 years.", new YoungCustomersAction()),//Інформацію по чеках куплених користувачем молодше 18 років, при цьому змінити тип чека на low_age
     SORTIN_INVOICES("Sort invoices by age of customers, then by count of items, then by total sum.", new SortInvoicesAction()),//Написати метод, який сортує (будь-яким відомим способом) усі замовлення в такому порядку:за віком покупця, за кількістю куплених предметів, за загальною сумою куплених предметів
 
-    SHOW_ALL_PRODUCTS("Show all products", new ShowAllAction()),
+    SHOW_ALL_PRODUCTS("Show all items", new ShowAllAction()),
     SHOW_ALL_INVOICES("Show all invoices", new ShowAllInvoicesAction()),
     EXIT("Finish program", new ExitAction());
 

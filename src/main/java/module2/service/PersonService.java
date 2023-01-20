@@ -1,6 +1,6 @@
 package module2.service;
 
-import module2.model.Customer;
+import module2.container.Customer;
 
 import java.util.Random;
 

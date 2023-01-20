@@ -1,4 +1,4 @@
-package module2.model;
+package module2.container;
 
 import lombok.Getter;
 import java.util.UUID;

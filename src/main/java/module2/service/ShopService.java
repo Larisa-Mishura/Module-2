@@ -1,11 +1,11 @@
 package module2.service;
 
+import module2.container.Customer;
 import module2.container.SumInvoiceComparator;
-import module2.model.Customer;
 import module2.container.Invoice;
 import module2.container.InvoiceType;
-import module2.model.item.Item;
-import module2.model.item.ItemType;
+import module2.model.Item;
+import module2.model.ItemType;
 import module2.repository.InvoiceRepository;
 import module2.repository.ItemRepository;
 import org.apache.commons.lang3.builder.CompareToBuilder;

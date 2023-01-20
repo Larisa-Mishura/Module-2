@@ -1,7 +1,7 @@
 package module2.repository;
 
 import module2.container.Invoice;
-import module2.model.item.Item;
+import module2.model.Item;
 
 import java.util.LinkedList;
 import java.util.List;
